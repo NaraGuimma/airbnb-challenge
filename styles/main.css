@@ -1,0 +1,116 @@
+body {
+  width: 98.5vw;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  background-color: #000000;
+  color: #ffffff;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-shadow: rgba(223, 223, 223, 0.18) 1px 1px 1px;
+  z-index: 9;
+  position: fixed;
+  top: 0;
+}
+
+.background-top {
+  padding: 0;
+  margin: 0;
+  height: 70%;
+  background-image: url("https://a0.muscache.com/im/pictures/3c23cdc9-b2bc-45e2-8bbd-930bf3076449.jpg?im_w=720");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 1500px 450px;
+}
+
+
+#section-top {
+  position: fixed;
+  margin: 0;
+  z-index: 8;
+  width: 100%;
+  padding-top: 24px;
+  /*box-shadow: rgb(37, 37, 37, 0.07) 1px 1px 5px;*/
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+a.logo img {
+  padding: 1em;
+  margin-top: 1rem;
+}
+
+.search-sec {
+  padding: 2.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 17em;
+}
+
+.search-slt {
+  display: flex;
+  width: 100%;
+  font-size: 0.875rem;
+  line-height: 1.5px;
+  color: #55595c;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 0;
+}
+
+.wrn-btn {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: capitalize;
+  border-radius: 0;
+}
+
+.card-wrapper {
+  margin-right: 0;
+  margin-top: -120px;
+  width: fit-content;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  margin: 0;
+  padding: 0;
+  border-color: #f4276b;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: rgb(37, 37, 37, 0.5) 2px 2px 5px;
+}
+
+#nome-prop {
+  height: 40px;
+
+}
+
+#valor {
+  font-size: 10pt;
+  color: darkslategray;
+}
+
+
+img.card-img-top {
+  justify-content: center;
+  height: 15rem;
+}
