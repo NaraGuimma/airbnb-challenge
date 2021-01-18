@@ -1,18 +1,8 @@
 let el = document.getElementById('section-top');
 let drpdwn_menu = document.getElementById('exampleFormControlSelect1');
 
-function scrollWin() {
-  el.style.backgroundColor = 'rgba(0,0,0,0.25)';
-}
-
 
 const API_URL = "https://dry-cliffs-94979.herokuapp.com/"
-
-//let currentPage = 1;
-
-//const ITEM_PER_PAGE = 8;
-
-//api cards
 
 const cardsContainer = document.querySelector(".card-container");
 let data = [];
@@ -27,6 +17,7 @@ async function fetchCards() {
 function renderCards(cards) {
   cardsContainer.innerHTML = "";
   cards.map(renderCard);
+
 }
 
 function renderCard(card) {
@@ -51,6 +42,28 @@ function renderCard(card) {
   cardsContainer.appendChild(div);
 }
 
+function scrollWin() {
+  el.style.backgroundColor = 'rgba(0,0,0,0.25)';
+}
+
+async function clickBtn() {
+  console.log(drpdwn_menu.value);
+  data = await fetchCards();
+  if (data) {
+    cardsContainer.innerHTML = "";
+    filteredArray = data.map(item => item)
+      .filter((item) => item.property_type === drpdwn_menu.value);
+    console.log(filteredArray);
+    if (filteredArray.length > 0) {
+      filteredArray.map(renderCard);
+    }
+    else {
+      main()
+    }
+  }
+}
+
+
 async function main() {
   data = await fetchCards();
   if (data) {
@@ -61,15 +74,19 @@ async function main() {
 async function getUniqueProperty() {
   let filteredArray = [];
   data = await fetchCards()
-  data.map(item => item.property_type)
-    .filter((value, index, self) => {
-      if (self.indexOf(value) === index) {
-        filteredArray.push(self)
-      }
-    });
-
+  filteredArray = data.map(item => item.property_type)
+    .filter((value, index, self) => self.indexOf(value) === index);
   console.log(filteredArray);
+  for (i = 0; i < filteredArray.length; i++) {
+    const option = document.createElement("option");
+    option.innerHTML = `
+    <option value="${filteredArray[i]}">${filteredArray[i]}</option>
+
+`;
+    drpdwn_menu.appendChild(option);
+  }
 }
+
 
 main();
 getUniqueProperty();
